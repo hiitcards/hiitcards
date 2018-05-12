@@ -1,31 +1,227 @@
 import React, {Component} from 'react'
-import {Button, Card, Container, Grid, Icon, Image} from 'semantic-ui-react'
-import * as NoSleep from "nosleep.js";
+import {Button, Card, Container, Divider, Grid, Icon, Image, Segment} from 'semantic-ui-react'
+import NoSleep from "../node_modules/nosleep.js/dist/NoSleep.min.js"
+import _ from 'lodash'
 
 class HiitCard extends Component {
   cards = [
     {
+      "image": "back-kick.jpg",
+      "name": "Back Walking",
+      "description": "On your back. Knees up. One leg rising at a time."
+    },
+    {
+      "image": "bench-bells.jpg",
+      "name": "Bench Bells",
+      "description": "On your back. Both arms and legs up together."
+    },
+    {
+      "image": "bench-lift.jpg",
+      "name": "Bench Lifts",
+      "description": "In a kneeling position lifting your weight from a bench."
+    },
+    {
+      "image": "birds-lifts.jpg",
+      "name": "Bird Lifts",
+      "description": "Rising into a bird position."
+    },
+    {
+      "image": "bridge-lift.jpg",
+      "name": "Bridge Lifts",
+      "description": "Rising into an extended bridge position."
+    },
+    {
+      "image": "bridge-reaches.jpg",
+      "name": "Bridge Reaches",
+      "description": "Facing upwards. One arm and one leg extending."
+    },
+    {
+      "image": "burpy-twists.jpg",
+      "name": "Burpy Twists",
+      "description": "Rolling backwards onto your back. Lying down into a twist."
+    },
+    {
+      "image": "burpy.jpg",
+      "name": "Burpies",
+      "description": "Jumping down into a push up."
+    },
+    {
+      "image": "butt-pops.jpg",
+      "name": "Butt Pops",
+      "description": "Head down and arms still. Legs jumping continuously."
+    },
+    {
+      "image": "cat-presses.jpg",
+      "name": "Cat Presses",
+      "description": "Pending down into a cat posture with one leg rising."
+    },
+    {
+      "image": "climb.jpg",
+      "name": "Climbing",
+      "description": "Climbing up on to a bench."
+    },
+    {
+      "image": "crunches.jpg",
+      "name": "Crunches",
+      "description": "Butt on the floor. Lifting lower and upper body together."
+    },
+    {
+      "image": "cycling.jpg",
+      "name": "Lifted Cycling",
+      "description": "Upper body lift. Cycling with legs."
+    },
+    {
+      "image": "dog-lifts.jpg",
+      "name": "Dog Lifts",
+      "description": "Head lowered. Lifting one leg."
+    },
+    {
       "image": "downward-walk.jpg",
       "name": "Downward Walk",
-      "description": "Walk out into a downward dog position and back again."
-    }, {
+      "description": "Walk out into a downward dog position."
+    },
+    {
+      "image": "floor-cycle.jpg",
+      "name": "Floor Cycling",
+      "description": "Lying on back. Legs cycling."
+    },
+    {
+      "image": "forward-lift.jpg",
+      "name": "Forward Lift",
+      "description": "Arms out front. One leg lifted."
+    },
+    {
+      "image": "handstand.jpg",
+      "name": "Handstand",
+      "description": "Arms down. Legs up."
+    },
+    {
+      "image": "hip-floor.jpg",
+      "name": "Floored Hips",
+      "description": "Face down. Alternating arms and legs rising."
+    },
+    {
+      "image": "knee-squat.jpg",
+      "name": "Knee Squats",
+      "description": "Lifting one leg. Lowering down onto a bench."
+    },
+    {
+      "image": "leg-up.jpg",
+      "name": "Legs Ups",
+      "description": "Arms up. Raising one leg."
+    },
+    {
+      "image": "leg-wipers.jpg",
+      "name": "Leg Wipers",
+      "description": "On your back. Lowering legs to one side."
+    },
+    {
+      "image": "lifted-cycling.jpg",
+      "name": "Lifted Cycling",
+      "description": "Propped up on elbows. Cycling."
+    },
+    {
+      "image": "lunges.jpg",
+      "name": "Lunges",
+      "description": "Lowering down onto one knee."
+    },
+    {
+      "image": "over-lifts.jpg",
+      "name": "Bent lifts",
+      "description": "Remaining bent over. Alternating lifting."
+    },
+    {
+      "image": "overhead-lifts.jpg",
+      "name": "Overhead Lifts",
+      "description": "Lunging and raising an arm from behind your head."
+    },
+    {
+      "image": "planking.jpg",
+      "name": "Planking",
+      "description": "Body stationary. Propped up on elbows."
+    },
+    {
+      "image": "push-lifts.jpg",
+      "name": "Push Lifts",
+      "description": "Upper body lifted. Raising one arm."
+    },
+    {
+      "image": "push-up.jpg",
+      "name": "Pushups",
+      "description": "Raising upper body on both arms."
+    },
+    {
+      "image": "push-walk.jpg",
+      "name": "Push Walk",
+      "description": "Upper body raised. One leg out the side."
+    },
+    {
+      "image": "skating.jpg",
+      "name": "Skating",
+      "description": "Body lowered with one leg out the side."
+    },
+    {
+      "image": "squat-punches.jpg",
+      "name": "Squat Punches",
+      "description": "Body lowered with arms punching out front."
+    },
+    {
+      "image": "squats.jpg",
+      "name": "Squats",
+      "description": "Body lowered with arms out front."
+    },
+    {
+      "image": "star-bends.jpg",
+      "name": "Star Bends",
+      "description": "Bending over to the side. One arm up."
+    },
+    {
+      "image": "star-jumps.jpg",
+      "name": "Star Jumps",
+      "description": "Jumping into the air with arms and legs spread out."
+    },
+    {
+      "image": "sun-salutions.jpg",
+      "name": "Sun Salutations",
+      "description": "Rising and falling into a sun salutation pose."
+    },
+    {
+      "image": "twist-jumps.jpg",
+      "name": "Twist Jumps",
+      "description": "Jumping into the air with arms and legs swinging in opposite directions."
+    },
+    {
       "image": "upward-reach.jpg",
-      "name": "Upward Reach",
-      "description": "Facing upwards. Balance on arm. Raising the other."
-    }, {
+      "name": "Upward Bridge",
+      "description": "Facing upwards. Upper body raised. One leg raising."
+    },
+    {
+      "image": "upward_bridge.jpg",
+      "name": "Upward Reaching",
+      "description": "Facing upwards. Upper body raised. One arm raising."
+    },
+    {
       "image": "walk-bells.jpg",
-      "name": "Walk Bells",
-      "description": "Lift one arm and one leg at the same time. Back and forth."
+      "name": "Walking Bells",
+      "description": "Alternating arms and legs raising."
+    },
+    {
+      "image": "wide-step.jpg",
+      "name": "Wide Steps",
+      "description": "Bending over the side with a wide stance."
     }
   ]
 
+  shuffledCards = _.shuffle(this.cards)
+
   state = {
-    repetitionSeconds: 10,
-    remainingSeconds: 10,
+    repetitionSeconds: 5,
+    remainingSeconds: 5,
     currentSecond: 0,
-    repetitions: 4,
-    remainingRepetitions: 4,
+    repetitions: 40,
+    remainingRepetitions: 40,
     repetitionIndex: 0,
+    cardIndex: 0,
     isPaused: true
   }
 
@@ -56,9 +252,9 @@ class HiitCard extends Component {
   }
 
   tick() {
-    if (this.state.remainingRepetitions <= 0 && this.state.remainingSeconds <= 0)
+    if (this.state.remainingRepetitions <= 0 && this.state.remainingSeconds <= 1)
       this.end()
-    else if (this.state.remainingSeconds <= 0)
+    else if (this.state.remainingSeconds <= 1)
       this.nextRepetition()
     else {
       this.setState({
@@ -70,21 +266,20 @@ class HiitCard extends Component {
       if (this.state.remainingSeconds <= 3)
         this.beep()
     }
-    // this.beep()
-    // let i = this.state.cardIndex + 1
-    // if (i >= this.cards.length)
-    //   i = 0
-    // this.setState({
-    //   cardIndex: i
-    // });
   }
 
   nextRepetition() {
+    let nextCardIndex = this.state.cardIndex + 1
+    if (nextCardIndex >= this.shuffledCards.length) {
+      nextCardIndex = 0
+    }
+
     this.setState({
       currentSecond: 1,
       remainingSeconds: this.state.repetitionSeconds,
       repetitionIndex: this.state.repetitionIndex + 1,
-      remainingRepetitions: this.state.remainingRepetitions - 1
+      remainingRepetitions: this.state.remainingRepetitions - 1,
+      cardIndex: nextCardIndex
     });
   }
 
@@ -101,12 +296,12 @@ class HiitCard extends Component {
   }
 
   render() {
-    let card = this.cards[this.state.repetitionIndex]
+    let card = this.shuffledCards[this.state.cardIndex]
     return (
       <Container>
-        <Grid padded>
-          <Grid.Column stretched>
-            <Grid.Row stretched>
+        <Grid>
+          <Grid.Column>
+            <Grid.Row>
               <Card centered>
                 <Image src={`./assets/${card.image}`}/>
                 <Card.Content>
@@ -114,7 +309,7 @@ class HiitCard extends Component {
                     {card.name}
                   </Card.Header>
                   <Card.Description>
-                    {card.description}.
+                    {card.description}
                   </Card.Description>
                 </Card.Content>
                 <Card.Content extra>
@@ -128,12 +323,22 @@ class HiitCard extends Component {
                 </Card.Content>
               </Card>
             </Grid.Row>
+            <Divider hidden></Divider>
+            <Grid.Row>
+              <Button icon toggle active={this.state.isPaused} labelPosition='left' onClick={this.handleClick}>
+                <Icon name='pause'/>
+                {this.state.isPaused ? "Start" : "Pause"}
+              </Button>
+            </Grid.Row>
+            <Divider hidden></Divider>
+            <Grid.Row>
+              <Segment basic className="right aligned">
+                <a href="http://www.kahneraja.com">@kahneraja</a>
+              </Segment>
+
+            </Grid.Row>
           </Grid.Column>
         </Grid>
-        <Button icon toggle active={this.state.isPaused} labelPosition='left' onClick={this.handleClick}>
-          <Icon name='pause'/>
-          {this.state.isPaused ? "Start" : "Pause"}
-        </Button>
       </Container>
     );
   }

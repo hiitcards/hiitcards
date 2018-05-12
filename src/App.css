@@ -1,5 +1,13 @@
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%;
+}
+
 .App {
   text-align: center;
+
 }
 
 .App-logo {
@@ -23,6 +31,14 @@
 }
 
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.card > .content > .description {
+  height: 60px;
 }
