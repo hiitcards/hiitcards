@@ -216,13 +216,19 @@ class HiitCard extends Component {
 
   state = {
     repetitionSeconds: 5,
-    remainingSeconds: 5,
     currentSecond: 0,
     repetitions: 40,
-    remainingRepetitions: 40,
     repetitionIndex: 0,
     cardIndex: 0,
     isPaused: true
+  }
+
+  remainingSeconds() {
+    return this.state.repetitionSeconds - this.state.currentSecond
+  }
+
+  remainingRepetitions() {
+    return this.state.repetitions - this.state.repetitionIndex
   }
 
   componentDidMount() {
@@ -245,25 +251,22 @@ class HiitCard extends Component {
   end() {
     this.pause();
     this.setState({
-      currentSecond: 0,
-      remainingSeconds: this.state.repetitionSeconds,
-      remainingRepetitions: this.state.repetitions
+      currentSecond: 0
     })
   }
 
   tick() {
-    if (this.state.remainingRepetitions <= 0 && this.state.remainingSeconds <= 1)
+    if (this.remainingRepetitions() <= 0 && this.remainingSeconds() <= 1)
       this.end()
-    else if (this.state.remainingSeconds <= 1)
+    else if (this.remainingSeconds() <= 1)
       this.nextRepetition()
     else {
       this.setState({
         currentSecond: this.state.currentSecond + 1,
-        remainingSeconds: this.state.repetitionSeconds - this.state.currentSecond,
-        remainingRepetitions: this.state.repetitions - this.state.repetitionIndex
+        repetitionIndex: this.state.repetitionIndex + 1
       })
 
-      if (this.state.remainingSeconds <= 3)
+      if (this.remainingSeconds() <= 3)
         this.beep()
     }
   }
@@ -276,9 +279,7 @@ class HiitCard extends Component {
 
     this.setState({
       currentSecond: 1,
-      remainingSeconds: this.state.repetitionSeconds,
       repetitionIndex: this.state.repetitionIndex + 1,
-      remainingRepetitions: this.state.remainingRepetitions - 1,
       cardIndex: nextCardIndex
     });
   }
@@ -315,10 +316,10 @@ class HiitCard extends Component {
                 <Card.Content extra>
                   <a>
                     <Icon name='clock'/>
-                    {this.state.remainingSeconds}
+                    {this.remainingSeconds()}
                   </a> | <a>
                   <Icon name='sort amount down'/>
-                  {this.state.remainingRepetitions}
+                  {this.remainingRepetitions()}
                 </a>
                 </Card.Content>
               </Card>
