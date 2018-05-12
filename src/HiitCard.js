@@ -52,7 +52,7 @@ class HiitCard extends Component {
     let card = this.state.cards[this.state.index]
     return (
       <Card>
-        <Image src={`/assets/${card.image}`}/>
+        <Image src={`./assets/${card.image}`}/>
         <Card.Content>
           <Card.Header>
             {card.name}
