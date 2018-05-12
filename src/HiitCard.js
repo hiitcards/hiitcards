@@ -1,46 +1,98 @@
 import React, {Component} from 'react'
-import {Card, Image} from 'semantic-ui-react'
+import {Button, Card, Container, Grid, Icon, Image} from 'semantic-ui-react'
+import * as NoSleep from "nosleep.js";
 
 class HiitCard extends Component {
-  constructor(props) {
-    super(props)
-    let cards = [
-      {
-        "image": "downward-walk.jpg",
-        "name": "Downward Walk",
-        "description": "Walk out into a downward dog position."
-      }, {
-        "image": "upward-reach.jpg",
-        "name": "Upward Reach",
-        "description": "Facing upwards. Balance on arm. Raising the other."
-      }, {
-        "image": "3.jpg",
-        "name": "3AAA",
-        "description": "DDDD"
-      }
-    ]
-    this.state = {
-      cards: cards,
-      index: 0
+  cards = [
+    {
+      "image": "downward-walk.jpg",
+      "name": "Downward Walk",
+      "description": "Walk out into a downward dog position and back again."
+    }, {
+      "image": "upward-reach.jpg",
+      "name": "Upward Reach",
+      "description": "Facing upwards. Balance on arm. Raising the other."
+    }, {
+      "image": "walk-bells.jpg",
+      "name": "Walk Bells",
+      "description": "Lift one arm and one leg at the same time. Back and forth."
     }
+  ]
+
+  state = {
+    repetitionSeconds: 10,
+    remainingSeconds: 10,
+    currentSecond: 0,
+    repetitions: 4,
+    remainingRepetitions: 4,
+    repetitionIndex: 0,
+    isPaused: true
   }
 
   componentDidMount() {
+    new NoSleep().enable()
+  }
+
+  start() {
     this.timerID = setInterval(
       () => this.tick(),
-      2000
+      1000
     );
-    /// clearInterval(this.timerID);
+    this.setState({isPaused: false})
+  }
+
+  pause() {
+    clearInterval(this.timerID)
+    this.setState({isPaused: true})
+  }
+
+  end() {
+    this.pause();
+    this.setState({
+      currentSecond: 0,
+      remainingSeconds: this.state.repetitionSeconds,
+      remainingRepetitions: this.state.repetitions
+    })
   }
 
   tick() {
-    //this.beep()
-    let i = this.state.index + 1
-    if (i >= this.state.cards.length)
-      i = 0
+    if (this.state.remainingRepetitions <= 0 && this.state.remainingSeconds <= 0)
+      this.end()
+    else if (this.state.remainingSeconds <= 0)
+      this.nextRepetition()
+    else {
+      this.setState({
+        currentSecond: this.state.currentSecond + 1,
+        remainingSeconds: this.state.repetitionSeconds - this.state.currentSecond,
+        remainingRepetitions: this.state.repetitions - this.state.repetitionIndex
+      })
+
+      if (this.state.remainingSeconds <= 3)
+        this.beep()
+    }
+    // this.beep()
+    // let i = this.state.cardIndex + 1
+    // if (i >= this.cards.length)
+    //   i = 0
+    // this.setState({
+    //   cardIndex: i
+    // });
+  }
+
+  nextRepetition() {
     this.setState({
-      index: i
+      currentSecond: 1,
+      remainingSeconds: this.state.repetitionSeconds,
+      repetitionIndex: this.state.repetitionIndex + 1,
+      remainingRepetitions: this.state.remainingRepetitions - 1
     });
+  }
+
+  handleClick = () => {
+    if (this.state.isPaused)
+      this.start()
+    else
+      this.pause()
   }
 
   beep() {
@@ -49,19 +101,40 @@ class HiitCard extends Component {
   }
 
   render() {
-    let card = this.state.cards[this.state.index]
+    let card = this.cards[this.state.repetitionIndex]
     return (
-      <Card>
-        <Image src={`./assets/${card.image}`}/>
-        <Card.Content>
-          <Card.Header>
-            {card.name}
-          </Card.Header>
-          <Card.Description>
-            {card.description}.
-          </Card.Description>
-        </Card.Content>
-      </Card>
+      <Container>
+        <Grid padded>
+          <Grid.Column stretched>
+            <Grid.Row stretched>
+              <Card centered>
+                <Image src={`./assets/${card.image}`}/>
+                <Card.Content>
+                  <Card.Header>
+                    {card.name}
+                  </Card.Header>
+                  <Card.Description>
+                    {card.description}.
+                  </Card.Description>
+                </Card.Content>
+                <Card.Content extra>
+                  <a>
+                    <Icon name='clock'/>
+                    {this.state.remainingSeconds}
+                  </a> | <a>
+                  <Icon name='sort amount down'/>
+                  {this.state.remainingRepetitions}
+                </a>
+                </Card.Content>
+              </Card>
+            </Grid.Row>
+          </Grid.Column>
+        </Grid>
+        <Button icon toggle active={this.state.isPaused} labelPosition='left' onClick={this.handleClick}>
+          <Icon name='pause'/>
+          {this.state.isPaused ? "Start" : "Pause"}
+        </Button>
+      </Container>
     );
   }
 }
