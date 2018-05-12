@@ -1,9 +1,9 @@
 import React, {Component} from 'react'
-import {Button, Container, Divider, Form, Grid, Icon, Segment} from 'semantic-ui-react'
-import NoSleep from "../node_modules/nosleep.js/dist/NoSleep.min.js"
+import {Button, Container, Grid, Icon, Segment} from 'semantic-ui-react'
 import _ from 'lodash'
 import HiitCard from "./HiitCard"
 import Cards from './Cards.json'
+import Settings from "./Settings";
 
 class HiitScheduler extends Component {
 
@@ -29,11 +29,9 @@ class HiitScheduler extends Component {
     return this.state.repetitions - this.state.repetitionIndex
   }
 
-  componentDidMount() {
-    new NoSleep().enable()
-  }
-
   start() {
+    this.beep()
+    document.noSleep.enable()
     this.timerID = setInterval(
       () => this.tick(),
       1000
@@ -58,7 +56,7 @@ class HiitScheduler extends Component {
     if (this.remainingRepetitions() <= 0 && this.remainingSeconds() <= 1)
       this.end()
     else if (this.remainingSeconds() <= 1)
-      this.startBreak()
+      this.break()
     else {
       this.setState({
         currentSecond: this.state.currentSecond + 1
@@ -69,13 +67,35 @@ class HiitScheduler extends Component {
     }
   }
 
-  startBreak() {
+  break() {
+    this.beep()
+    clearInterval(this.timerID)
+
     this.setState({
       isBreak: true
-    });
+    })
+    this.timerID = setInterval(
+      () => this.continue(),
+      this.state.breakSeconds * 1000
+    );
+  }
+
+  continue() {
+    this.beep()
+    clearInterval(this.timerID)
+
+    this.nextRepetition()
+    this.setState({
+      isBreak: false
+    })
+    this.timerID = setInterval(
+      () => this.tick(),
+      1000
+    );
   }
 
   nextRepetition() {
+    this.beep()
     let nextCardIndex = this.state.cardIndex + 1
     if (nextCardIndex >= this.shuffledCards.length) {
       nextCardIndex = 0
@@ -115,88 +135,53 @@ class HiitScheduler extends Component {
     let card = this.shuffledCards[this.state.cardIndex]
     return (
       <Container>
-        <Segment className={!this.state.showSettings ? 'hidden' : ''}>
-          <Form onSubmit={this.handleSubmit}>
-            <Form.Field>
-              <label>Workout Seconds</label>
-              <Form.Input
-                placeholder='Workout Seconds'
-                name="repetitionSeconds"
-                type='number'
-                defaultValue={this.state.repetitionSeconds}
-                onChange={this.handleChange}/>
-            </Form.Field>
-            <Form.Field>
-              <label>Break Seconds</label>
-              <Form.Input
-                placeholder='Break Seconds'
-                name="breakSeconds"
-                type='number'
-                defaultValue={this.state.breakSeconds}
-                onChange={this.handleChange}/>
-            </Form.Field>
-            <Form.Field>
-              <label>Repetitions</label>
-              <Form.Input
-                placeholder='Repetitions'
-                name="repetitions"
-                type='number'
-                defaultValue={this.state.repetitions}
-                onChange={this.handleChange}/>
-            </Form.Field>
-            <Button type='submit'>Done</Button>
-          </Form>
-        </Segment>
-        <div className={this.state.showSettings ? 'hidden' : ''}>
-          <Grid>
-            <Grid.Column>
-              <Grid.Row>
-                <Segment basic className="right aligned">
-                  <Button
-                    icon basic
-                    onClick={this.toggleSettings}>
-                    <Icon name='edit'/>
-                  </Button>
-                </Segment>
-              </Grid.Row>
-              <Grid.Row>
-                <HiitCard
-                  name={card.name}
-                  description={card.description}
-                  image={card.image}>
-                </HiitCard>
-              </Grid.Row>
-
-              <Divider hidden></Divider>
-              <Grid.Row>
-                <Segment basic>
-                  <a><Icon name='clock'/>{this.remainingSeconds()}</a> | <a>
+        <div className={this.state.isBreak ? 'hidden' : ''}>
+          <Segment className={!this.state.showSettings ? 'hidden' : ''}>
+            <Settings
+              repetitions={this.state.repetitions}
+              breakSeconds={this.state.breakSeconds}
+              repetitionSeconds={this.state.repetitionSeconds}
+              handleChange={this.handleChange}
+              handleSubmit={this.handleSubmit}
+            />
+          </Segment>
+          <div className={this.state.showSettings ? 'hidden' : ''}>
+            <Grid>
+              <Grid.Column>
+                <Grid.Row>
+                  <HiitCard
+                    name={card.name}
+                    description={card.description}
+                    image={card.image}>
+                  </HiitCard>
+                </Grid.Row>
+                <Grid.Row>
+                  <Segment basic onClick={this.toggleSettings}>
+                    <a><Icon name='clock'/>{this.remainingSeconds()}</a> | <a>
                     <Icon name='sort amount down'/>
                     {this.remainingRepetitions()}
                   </a>
-                </Segment>
-              </Grid.Row>
-              <Divider hidden></Divider>
-              <Grid.Row>
-                <Segment basic>
-                  <Button
-                    icon toggle
-                    active={this.state.isPaused}
-                    labelPosition='left'
-                    onClick={this.handleClick}>
-                    <Icon name='pause'/>
-                    {this.state.isPaused ? "Start" : "Pause"}
-                  </Button>
-                </Segment>
-              </Grid.Row>
-              <Divider hidden></Divider>
-              <Grid.Row>
-                <Segment basic className="right aligned">
-                  <a href="http://www.kahneraja.com">@kahneraja</a>
-                </Segment>
-              </Grid.Row>
-            </Grid.Column>
-          </Grid>
+                  </Segment>
+                </Grid.Row>
+                <Grid.Row>
+                  <Segment basic>
+                    <Button
+                      icon toggle
+                      active={this.state.isPaused}
+                      labelPosition='left'
+                      onClick={this.handleClick}>
+                      <Icon name='pause'/>
+                      {this.state.isPaused ? "Start" : "Pause"}
+                    </Button>
+                  </Segment>
+                </Grid.Row>
+              </Grid.Column>
+            </Grid>
+          </div>
+        </div>
+        <div className={!this.state.isBreak ? 'hidden' : ''}>
+          <Icon className="massive orange stopwatch"/>
+          <p>Break</p>
         </div>
       </Container>
     );
