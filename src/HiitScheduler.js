@@ -7,6 +7,9 @@ import Settings from "./Settings";
 
 class HiitScheduler extends Component {
 
+  beepA = new Audio('beep-a.mp3')
+  beepB = new Audio('beep-b.mp3')
+
   state = {
     repetitionSeconds: 115,
     breakSeconds: 15,
@@ -17,7 +20,8 @@ class HiitScheduler extends Component {
     isPaused: true,
     isBreak: false,
     showSettings: false,
-    shuffledCards: []
+    shuffledCards: [],
+    volume: 0.1
   }
 
   componentWillMount() {
@@ -37,7 +41,7 @@ class HiitScheduler extends Component {
   }
 
   start() {
-    this.beepShort.play()
+    this.doubleBeep()
     document.noSleep.enable()
     this.timerID = setInterval(
       () => this.tick(),
@@ -61,7 +65,20 @@ class HiitScheduler extends Component {
 
   end() {
     this.reset()
-    this.beepLong.play()
+    this.doubleBeep()
+    setTimeout(() => { this.doubleBeep() }, 1000)
+    setTimeout(() => { this.doubleBeep() }, 2000)
+  }
+
+  beep() {
+    this.beepA.volume = this.state.volume;
+    this.beepA.play()
+  }
+
+  doubleBeep() {
+    this.beep()
+    this.beepB.volume = this.state.volume;
+    this.beepB.play()
   }
 
   tick() {
@@ -75,12 +92,12 @@ class HiitScheduler extends Component {
       })
 
       if (this.remainingSeconds() <= 3)
-        this.beepShort.play()
+        this.beep()
     }
   }
 
   break() {
-    this.beepShort.play()
+    this.beep()
     clearInterval(this.timerID)
 
     this.setState({
@@ -95,7 +112,7 @@ class HiitScheduler extends Component {
   }
 
   continue() {
-    this.beepShort.play()
+    this.beep()
     clearInterval(this.timerID)
 
     this.nextRepetition()
@@ -122,7 +139,7 @@ class HiitScheduler extends Component {
   }
 
   nextRepetition() {
-    this.beepShort.play()
+    this.beep()
   }
 
   // #### UI EVENTS
@@ -161,14 +178,13 @@ class HiitScheduler extends Component {
     let card = this.state.shuffledCards[this.state.cardIndex]
     return (
       <Container>
-        <audio ref={(beepShort) => { this.beepShort = beepShort; }}><source src="./beep-short.mp3" type="audio/mpeg" ></source></audio>
-        <audio ref={(beepLong) => { this.beepLong = beepLong; }}><source src="./beep-long.mp3" type="audio/mpeg" ></source></audio>
         <div className={this.state.isBreak ? 'hidden' : ''}>
           <Segment className={!this.state.showSettings ? 'hidden' : ''}>
             <Settings
               repetitions={this.state.repetitions}
               breakSeconds={this.state.breakSeconds}
               repetitionSeconds={this.state.repetitionSeconds}
+              volume={this.state.volume}
               handleChange={this.handleChange}
               handleSubmit={this.handleSubmit}
             />

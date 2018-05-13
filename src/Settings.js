@@ -33,9 +33,19 @@ class Settings extends Component {
             value={this.props.repetitions}
             onChange={this.props.handleChange}/>
         </Form.Field>
+        <Form.Field>
+          <label>Volume</label>
+          <Form.Input
+            placeholder='Volume'
+            name="volume"
+            type='number'
+            step="0.05"
+            value={this.props.volume}
+            onChange={this.props.handleChange}/>
+        </Form.Field>
         <Button type='submit'>Done</Button>
         <Segment basic className="right aligned">
-          <div className="">v1.0.2</div>
+          <div className="">v1.0.8</div>
           <div><a href="http://www.kahneraja.com">@kahneraja</a></div>
         </Segment>
       </Form>
