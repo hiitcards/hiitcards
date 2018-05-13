@@ -35,7 +35,7 @@ class Settings extends Component {
         </Form.Field>
         <Button type='submit'>Done</Button>
         <Segment basic className="right aligned">
-          <div className="">v1.0.1</div>
+          <div className="">v1.0.2</div>
           <div><a href="http://www.kahneraja.com">@kahneraja</a></div>
         </Segment>
       </Form>
