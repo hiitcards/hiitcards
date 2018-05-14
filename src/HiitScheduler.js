@@ -3,7 +3,7 @@ import {Button, Container, Grid, Icon, Segment} from 'semantic-ui-react'
 import _ from 'lodash'
 import HiitCard from "./HiitCard"
 import Cards from './Cards.json'
-import Settings from "./Settings";
+import Settings from "./Settings"
 
 class HiitScheduler extends Component {
 
@@ -11,7 +11,7 @@ class HiitScheduler extends Component {
   beepB = new Audio('beep-b.mp3')
 
   state = {
-    repetitionSeconds: 115,
+    repetitionSeconds: 75,
     breakSeconds: 15,
     currentSecond: 0,
     repetitions: 30,
@@ -41,12 +41,12 @@ class HiitScheduler extends Component {
   }
 
   start() {
-    this.doubleBeep()
+    this.doubleBeep(1)
     document.noSleep.enable()
     this.timerID = setInterval(
       () => this.tick(),
       1000
-    );
+    )
     this.setState({isPaused: false})
   }
 
@@ -56,7 +56,7 @@ class HiitScheduler extends Component {
   }
 
   reset() {
-    this.pause();
+    this.pause()
     this.setState({
       currentSecond: 0,
       repetitionIndex: 0
@@ -65,20 +65,27 @@ class HiitScheduler extends Component {
 
   end() {
     this.reset()
-    this.doubleBeep()
-    setTimeout(() => { this.doubleBeep() }, 1000)
-    setTimeout(() => { this.doubleBeep() }, 2000)
+    this.doubleBeep(3)
   }
 
-  beep() {
-    this.beepA.volume = this.state.volume;
-    this.beepA.play()
+  beep(times) {
+    this.beepA.volume = this.state.volume
+    for (let i = 0; i < times; i++) {
+      setTimeout(() => {
+        this.beepA.play()
+      }, i * 1000)
+    }
   }
 
-  doubleBeep() {
-    this.beep()
-    this.beepB.volume = this.state.volume;
-    this.beepB.play()
+  doubleBeep(times) {
+    this.beepA.volume = this.state.volume
+    this.beepB.volume = this.state.volume
+    for (let i = 0; i < times; i++) {
+      setTimeout(() => {
+        this.beepA.play()
+        this.beepB.play()
+      }, i * 1000)
+    }
   }
 
   tick() {
@@ -92,37 +99,32 @@ class HiitScheduler extends Component {
       })
 
       if (this.remainingSeconds() <= 3)
-        this.beep()
+        this.beep(1)
     }
   }
 
   break() {
-    this.beep()
     clearInterval(this.timerID)
+    this.setState({isBreak: true})
 
-    this.setState({
-      isBreak: true
-    })
-    this.timerID = setInterval(
-      () => this.continue(),
-      this.state.breakSeconds * 1000
-    )
+    setTimeout(() => this.endBreak(), (this.state.breakSeconds - 3) * 1000)
+    this.timerID = setInterval(() => this.continue(), this.state.breakSeconds * 1000)
 
+    this.beep(1)
     this.prepareNextRepetition()
   }
 
+  endBreak() {
+    this.beep(3)
+    this.setState({isBreak: false})
+  }
+
   continue() {
-    this.beep()
+    this.beep(1)
     clearInterval(this.timerID)
 
     this.nextRepetition()
-    this.setState({
-      isBreak: false
-    })
-    this.timerID = setInterval(
-      () => this.tick(),
-      1000
-    );
+    this.timerID = setInterval(() => this.tick(), 1000)
   }
 
   prepareNextRepetition() {
@@ -139,7 +141,7 @@ class HiitScheduler extends Component {
   }
 
   nextRepetition() {
-    this.beep()
+    this.beep(1)
   }
 
   // #### UI EVENTS
@@ -234,7 +236,7 @@ class HiitScheduler extends Component {
           <p>Break</p>
         </div>
       </Container>
-    );
+    )
   }
 }
 
