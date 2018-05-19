@@ -21,7 +21,7 @@ class HiitScheduler extends Component {
     isBreak: false,
     showSettings: false,
     shuffledCards: [],
-    volume: 0.1
+    volume: 0.5
   }
 
   componentWillMount() {
@@ -177,7 +177,16 @@ class HiitScheduler extends Component {
   }
 
   render() {
-    let card = this.state.shuffledCards[this.state.cardIndex]
+    const card = this.state.shuffledCards[this.state.cardIndex]
+
+    let percent = ((this.state.repetitionIndex + 1) / this.state.repetitions) * 100
+    let progress = {
+      backgroundColor: '#21ba45',
+      width: percent + '%',
+      height: 10,
+      display: "block"
+    }
+
     return (
       <Container>
         <div className={this.state.isBreak ? 'hidden' : ''}>
@@ -201,6 +210,7 @@ class HiitScheduler extends Component {
                     image={card.image}
                   >
                   </HiitCard>
+                  <div style={progress}></div>
                 </Grid.Row>
                 <Grid.Row>
                   <Segment basic onClick={this.toggleSettings}>

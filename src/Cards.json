@@ -203,5 +203,10 @@
     "image": "wide-step.jpg",
     "name": "Wide Steps",
     "description": "Bending over the side with a wide stance."
+  },
+  {
+    "image": "standing-belly-twist.jpg",
+    "name": "Standing Belly Twist",
+    "description": "Standing. One leg raised to your hand. Upper body twisted."
   }
 ]
