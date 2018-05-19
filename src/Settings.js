@@ -1,19 +1,52 @@
 import React, {Component} from 'react'
 import {Button, Form, Segment} from 'semantic-ui-react'
+import JsonStore from "./JsonStore";
 
 class Settings extends Component {
 
+  constructor (props){
+    super(props);
+    this.onSubmit = this.onSubmit.bind(this);
+  }
+
+  jsonStore = new JsonStore()
+
+  state = {
+    repetitionSeconds: 0,
+    breakSeconds: 0,
+    repetitions: 0,
+    volume: 0
+  }
+
+  componentWillMount() {
+    this.setState({...this.jsonStore.get()})
+  }
+
+  onSubmit() {
+    this.jsonStore.set('config', this.state)
+    this.props.history.push("/")
+  }
+
+  handleChange = (e, {name, value}) => {
+    this.setState({[name]: parseFloat(value)})
+  }
+
   render() {
+    let repetitionSeconds = this.state.repetitionSeconds
+    let breakSeconds = this.state.breakSeconds
+    let repetitions = this.state.repetitions
+    let volume = this.state.volume
+
     return (
-      <Form onSubmit={this.props.handleSubmit}>
+      <Form>
         <Form.Field>
           <label>Workout Seconds</label>
           <Form.Input
             placeholder='Workout Seconds'
             name="repetitionSeconds"
             type='number'
-            value={this.props.repetitionSeconds}
-            onChange={this.props.handleChange}/>
+            value={repetitionSeconds}
+            onChange={this.handleChange}/>
         </Form.Field>
         <Form.Field>
           <label>Break Seconds</label>
@@ -21,8 +54,8 @@ class Settings extends Component {
             placeholder='Break Seconds'
             name="breakSeconds"
             type='number'
-            value={this.props.breakSeconds}
-            onChange={this.props.handleChange}/>
+            value={breakSeconds}
+            onChange={this.handleChange}/>
         </Form.Field>
         <Form.Field>
           <label>Repetitions</label>
@@ -30,8 +63,8 @@ class Settings extends Component {
             placeholder='Repetitions'
             name="repetitions"
             type='number'
-            value={this.props.repetitions}
-            onChange={this.props.handleChange}/>
+            value={repetitions}
+            onChange={this.handleChange}/>
         </Form.Field>
         <Form.Field>
           <label>Volume</label>
@@ -40,10 +73,10 @@ class Settings extends Component {
             name="volume"
             type='number'
             step="0.05"
-            value={this.props.volume}
-            onChange={this.props.handleChange}/>
+            value={volume}
+            onChange={this.handleChange}/>
         </Form.Field>
-        <Button type='submit'>Done</Button>
+        <Button onClick={this.onSubmit}>Done</Button>
         <Segment basic className="right aligned">
           <div className="">v1.0.9</div>
           <div><a href="http://www.kahneraja.com">@kahneraja</a></div>

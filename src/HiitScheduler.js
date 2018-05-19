@@ -3,7 +3,7 @@ import {Button, Container, Grid, Icon, Segment} from 'semantic-ui-react'
 import _ from 'lodash'
 import HiitCard from "./HiitCard"
 import Cards from './Cards.json'
-import Settings from "./Settings"
+import JsonStore from "./JsonStore";
 
 class HiitScheduler extends Component {
 
@@ -11,20 +11,22 @@ class HiitScheduler extends Component {
   beepB = new Audio('beep-b.mp3')
 
   state = {
-    repetitionSeconds: 75,
-    breakSeconds: 15,
+    repetitionSeconds: 0,
+    breakSeconds: 0,
     currentSecond: 0,
-    repetitions: 30,
+    repetitions: 0,
     repetitionIndex: 0,
     cardIndex: 0,
     isPaused: true,
     isBreak: false,
-    showSettings: false,
     shuffledCards: [],
-    volume: 0.5
+    volume: 0
   }
 
+  jsonStore = new JsonStore()
+
   componentWillMount() {
+    this.setState({...this.jsonStore.get()})
     this.shuffle()
   }
 
@@ -153,19 +155,6 @@ class HiitScheduler extends Component {
       this.pause()
   }
 
-  toggleSettings = () => {
-    this.reset()
-    this.setState({showSettings: !this.state.showSettings})
-  }
-
-  handleSubmit = (e, v) => {
-    this.toggleSettings()
-  }
-
-  handleChange = (e, {name, value}) => {
-    this.setState({[name]: value})
-  }
-
   onCardClick = () => {
     if (this.state.isPaused)
       this.shuffle()
@@ -190,17 +179,7 @@ class HiitScheduler extends Component {
     return (
       <Container>
         <div className={this.state.isBreak ? 'hidden' : ''}>
-          <Segment className={!this.state.showSettings ? 'hidden' : ''}>
-            <Settings
-              repetitions={this.state.repetitions}
-              breakSeconds={this.state.breakSeconds}
-              repetitionSeconds={this.state.repetitionSeconds}
-              volume={this.state.volume}
-              handleChange={this.handleChange}
-              handleSubmit={this.handleSubmit}
-            />
-          </Segment>
-          <div className={this.state.showSettings ? 'hidden' : ''}>
+          <div>
             <Grid>
               <Grid.Column>
                 <Grid.Row onClick={this.onCardClick}>
@@ -213,16 +192,18 @@ class HiitScheduler extends Component {
                   <div style={progress}></div>
                 </Grid.Row>
                 <Grid.Row>
-                  <Segment basic onClick={this.toggleSettings}>
-                    <h1>
+                  <Segment basic>
+                    <a href="/settings">
+                      <h1>
                       <span>
                         <Icon name='clock'/> {this.remainingSeconds()}
                       </span>
-                      <span> | </span>
-                      <span>
+                        <span> | </span>
+                        <span>
                         {this.remainingRepetitions()}
                       </span>
-                    </h1>
+                      </h1>
+                    </a>
                   </Segment>
                 </Grid.Row>
                 <Grid.Row>

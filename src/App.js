@@ -1,14 +1,14 @@
 import React, {Component} from 'react';
 import './App.css';
-import HiitScheduler from "./HiitScheduler";
+import Main from "./Main";
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <HiitScheduler></HiitScheduler>
+        <Main />
       </div>
-    );
+    )
   }
 }
 
