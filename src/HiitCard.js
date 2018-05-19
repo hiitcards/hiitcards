@@ -5,7 +5,7 @@ class HiitCard extends Component {
   render() {
     return (
       <Card centered>
-        <Image src={`./assets/${this.props.image}`}/>
+        <Image src={`/assets/${this.props.image}`}/>
         <Card.Content>
           <Card.Header>
             {this.props.name}
