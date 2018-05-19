@@ -2,7 +2,7 @@
   "name": "hiit-cards",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://hiit-cards.com",
+  "homepage": "http://hiitcards.com",
   "dependencies": {
     "gh-pages": "^1.1.0",
     "lodash": "^4.17.10",
