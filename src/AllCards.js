@@ -12,7 +12,7 @@ class AllCards extends Component {
     }
 
     const cardItems = Cards.map((card, i) =>
-      <img src={`./assets/${card.image}`} style={imageStyle}/>
+      <img src={`/assets/${card.image}`} style={imageStyle}/>
     )
 
     return (
