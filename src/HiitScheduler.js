@@ -34,6 +34,11 @@ class HiitScheduler extends Component {
     this.setState({shuffledCards: _.shuffle(Cards)})
   }
 
+  isHalfWay() {
+    let halfWaySeconds = Math.floor(this.state.repetitionSeconds  / 2)
+    return this.state.currentSecond === halfWaySeconds
+  }
+
   remainingSeconds() {
     return this.state.repetitionSeconds - this.state.currentSecond
   }
@@ -99,6 +104,9 @@ class HiitScheduler extends Component {
       this.setState({
         currentSecond: this.state.currentSecond + 1
       })
+
+      if (this.isHalfWay())
+        this.beep(1)
 
       if (this.remainingSeconds() <= 3)
         this.beep(1)
