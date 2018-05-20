@@ -193,7 +193,7 @@ class HiitScheduler extends Component {
                 </Grid.Row>
                 <Grid.Row>
                   <Segment basic>
-                    <a href="/settings">
+                    <a href="/#/settings">
                       <h1>
                       <span>
                         <Icon name='clock'/> {this.remainingSeconds()}
