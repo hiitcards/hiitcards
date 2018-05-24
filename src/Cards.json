@@ -208,5 +208,10 @@
     "image": "standing-belly-twist.jpg",
     "name": "Standing Belly Twist",
     "description": "Standing. One leg raised to your hand. Upper body twisted."
+  },
+  {
+    "image": "triangle.jpg",
+    "name": "Triangle Stretches",
+    "description": "Alternating triangle stance. Upper body twist."
   }
 ]
