@@ -213,5 +213,10 @@
     "image": "triangle.jpg",
     "name": "Triangle Stretches",
     "description": "Alternating triangle stance. Upper body twist."
+  },
+  {
+    "image": "propped-leg.jpg",
+    "name": "Propped Leg",
+    "description": "Alternating stance on one leg. Upper body twist."
   }
 ]
