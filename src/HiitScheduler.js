@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Button, Container, Grid, Icon, Segment} from 'semantic-ui-react'
+import {Container, Grid, Icon, Segment} from 'semantic-ui-react'
 import _ from 'lodash'
 import HiitCard from "./HiitCard"
 import Cards from './Cards.json'
@@ -35,7 +35,7 @@ class HiitScheduler extends Component {
   }
 
   isHalfWay() {
-    let halfWaySeconds = Math.floor(this.state.repetitionSeconds  / 2)
+    let halfWaySeconds = Math.floor(this.state.repetitionSeconds / 2)
     return this.state.currentSecond === halfWaySeconds
   }
 
@@ -104,9 +104,6 @@ class HiitScheduler extends Component {
       this.setState({
         currentSecond: this.state.currentSecond + 1
       })
-
-      if (this.isHalfWay())
-        this.beep(1)
 
       if (this.remainingSeconds() <= 3)
         this.beep(1)
@@ -184,46 +181,40 @@ class HiitScheduler extends Component {
       display: "block"
     }
 
+    let cardBackground = 'green'
+    if (this.state.isPaused)
+      cardBackground = 'orange'
+
+    let cardStyle = {
+      padding: '10px',
+      backgroundColor: cardBackground
+    }
+
     return (
       <Container>
         <div className={this.state.isBreak ? 'hidden' : ''}>
           <div>
             <Grid>
               <Grid.Column>
-                <Grid.Row onClick={this.onCardClick}>
-                  <HiitCard
-                    name={card.name}
-                    description={card.description}
-                    image={card.image}
-                  >
-                  </HiitCard>
-                  <div style={progress}></div>
+                <Grid.Row onClick={this.handleClick}>
+                  <div style={cardStyle}>
+                    <HiitCard
+                      name={card.name}
+                      description={card.description}
+                      image={card.image}
+                    >
+                    </HiitCard>
+                  </div>
                 </Grid.Row>
                 <Grid.Row>
                   <Segment basic>
                     <a href="/#/settings">
                       <h1>
-                      <span>
-                        <Icon name='clock'/> {this.remainingSeconds()}
-                      </span>
-                        <span> | </span>
-                        <span>
-                        {this.remainingRepetitions()}
+                      <span className="white">
+                        <Icon name='clock'/>
                       </span>
                       </h1>
                     </a>
-                  </Segment>
-                </Grid.Row>
-                <Grid.Row>
-                  <Segment basic>
-                    <Button
-                      icon toggle
-                      active={this.state.isPaused}
-                      labelPosition='left'
-                      onClick={this.handleClick}>
-                      <Icon name='pause'/>
-                      {this.state.isPaused ? "Start" : "Pause"}
-                    </Button>
                   </Segment>
                 </Grid.Row>
               </Grid.Column>

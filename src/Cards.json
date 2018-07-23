@@ -125,11 +125,6 @@
     "description": "Remaining bent over. Alternating lifting."
   },
   {
-    "image": "overhead-lifts.jpg",
-    "name": "Overhead Lifts",
-    "description": "Lunging and raising an arm from behind your head."
-  },
-  {
     "image": "planking.jpg",
     "name": "Planking",
     "description": "Body stationary. Propped up on elbows."
@@ -218,5 +213,10 @@
     "image": "propped-leg.jpg",
     "name": "Propped Leg",
     "description": "Alternating stance on one leg. Upper body twist."
+  },
+  {
+    "image": "brideg-lifts.jpg",
+    "name": "Bridge Lifts",
+    "description": "On your back. Lifting dumbels up and over."
   }
 ]
