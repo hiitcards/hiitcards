@@ -218,5 +218,25 @@
     "image": "bridge-arch.jpg",
     "name": "Bridge Archs",
     "description": "On your back. Lifting dumbels up and over."
+  },
+  {
+    "image": "standing-split.jpg",
+    "name": "Standing Split",
+    "description": "Head down. One leg up."
+  },
+  {
+    "image": "wall-stand.jpg",
+    "name": "L Shaped Handstand",
+    "description": "L shaped handstand against a wall."
+  },
+  {
+    "image": "raised-press.jpg",
+    "name": "Raised Press",
+    "description": "Pushups with legs raised."
+  },
+  {
+    "image": "crow.jpg",
+    "name": "Crow",
+    "description": "Crouched over and raised up onto arms."
   }
 ]
