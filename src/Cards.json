@@ -238,5 +238,10 @@
     "image": "crow.jpg",
     "name": "Crow",
     "description": "Crouched over and raised up onto arms."
+  },
+  {
+    "image": "fly-bells.jpg",
+    "name": "Fly Bells",
+    "description": "Arms up and down with dumbells."
   }
 ]
