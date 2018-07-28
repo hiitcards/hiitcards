@@ -243,5 +243,25 @@
     "image": "fly-bells.jpg",
     "name": "Fly Bells",
     "description": "Arms up and down with dumbells."
+  },
+  {
+    "image": "pyramid-squats.jpg",
+    "name": "Pyramid Squats",
+    "description": "Hands together pushout outwards and core upwards in a squat."
+  },
+  {
+    "image": "surfers-lung.jpg",
+    "name": "Surfers Lung",
+    "description": "Squating with one leg out to the side. A long torso."
+  },
+  {
+    "image": "staff-presses.jpg",
+    "name": "Staff Presses",
+    "description": "Pressing up with legs fully stretched out. Stretching hamstrings."
+  },
+  {
+    "image": "standing-fold.jpg",
+    "name": "Staff Presses",
+    "description": "Stretching hamstrings."
   }
 ]
