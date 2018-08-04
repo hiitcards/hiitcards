@@ -78,7 +78,7 @@ class Settings extends Component {
         </Form.Field>
         <Button onClick={this.onSubmit}>Done</Button>
         <Segment basic className="right aligned">
-          <div className="">v1.1.6</div>
+          <div className="">v1.1.7</div>
           <div><a href="http://www.kahneraja.com">@kahneraja</a></div>
         </Segment>
       </Form>
