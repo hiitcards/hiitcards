@@ -273,5 +273,10 @@
     "image": "raised-bridge.jpg",
     "name": "Raised Bridge",
     "description": "Up on both arms and one leg up."
+  },
+  {
+    "image": "platform-squat.jpg",
+    "name": "Platform Squat",
+    "description": "Dumbells. One legged squat on a raised platform."
   }
 ]
