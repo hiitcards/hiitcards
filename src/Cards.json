@@ -278,5 +278,10 @@
     "image": "platform-squat.jpg",
     "name": "Platform Squat",
     "description": "Dumbells. One legged squat on a raised platform."
+  },
+  {
+    "image": "wheel.jpg",
+    "name": "Wheel Lifts",
+    "description": "Wheel Pose (Urdhva Dhanurasana) is considered a more advanced pose because it’s a total body stretch."
   }
 ]
