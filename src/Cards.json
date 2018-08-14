@@ -283,5 +283,15 @@
     "image": "wheel.jpg",
     "name": "Wheel Lifts",
     "description": "Wheel Pose (Urdhva Dhanurasana) is considered a more advanced pose because it’s a total body stretch."
+  },
+  {
+    "image": "elbow-lift.jpg",
+    "name": "Elbow Lifts",
+    "description": "Elbows down. Kick one leg up behind you."
+  },
+  {
+    "image": "elbow-stand.jpg",
+    "name": "Elbow Stand",
+    "description": "Elbows down. Both legs up."
   }
 ]
