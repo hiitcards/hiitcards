@@ -293,5 +293,10 @@
     "image": "elbow-stand.jpg",
     "name": "Elbow Stand",
     "description": "Elbows down. Both legs up."
+  },
+  {
+    "image": "star-crunch.jpg",
+    "name": "Star Crunch",
+    "description": "A core work out aka the row boat."
   }
 ]
