@@ -298,5 +298,20 @@
     "image": "star-crunch.jpg",
     "name": "Star Crunch",
     "description": "A core work out aka the row boat."
+  },
+  {
+    "image": "backwards-plank.jpg"
+  },
+  {
+    "image": "downdog-slide.jpg"
+  },
+  {
+    "image": "downdog-toetaps.jpg"
+  },
+  {
+    "image": "wall-tuck.jpg"
+  },
+  {
+    "image": "wall-tucks.jpg"
   }
 ]
