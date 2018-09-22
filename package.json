@@ -12,7 +12,8 @@
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.4",
     "semantic-ui-css": "2.2.12",
-    "semantic-ui-react": "0.80.0"
+    "semantic-ui-react": "0.80.0",
+    "spotify-web-api-node": "^4.0.0"
   },
   "scripts": {
     "start": "react-scripts start",

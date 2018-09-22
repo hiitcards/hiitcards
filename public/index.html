@@ -32,6 +32,14 @@
 
       gtag('config', 'UA-119577008-1');
     </script>
+
+    <!-- Spotify -->
+    <script src="https://sdk.scdn.co/spotify-player.js"></script>
+    <script>
+      window.onSpotifyWebPlaybackSDKReady = () => {
+        window.Spotify = Spotify;
+      }
+    </script>
 </head>
 <body>
 <noscript>
