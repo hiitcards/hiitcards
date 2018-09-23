@@ -76,9 +76,12 @@ class Settings extends Component {
             value={volume}
             onChange={this.handleChange}/>
         </Form.Field>
+        <Segment basic>
+          <div><a href="/#/all-cards">Cards</a></div>
+        </Segment>
         <Button onClick={this.onSubmit}>Done</Button>
         <Segment basic className="right aligned">
-          <div className="">v1.1.13</div>
+          <div className="">v1.1.15</div>
           <div><a href="http://www.kahneraja.com">@kahneraja</a></div>
         </Segment>
       </Form>

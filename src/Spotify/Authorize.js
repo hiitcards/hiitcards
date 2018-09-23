@@ -9,7 +9,8 @@ class Authorize extends Component {
   }
 
   componentDidMount() {
-    const redirectUri = 'http://localhost:3000/spotify/callback'
+    const host = window.location.host
+    const redirectUri = `http://${host}/spotify/callback`
     const clientId = 'ee75a3f66c5b4550af2af8de8d06038c'
     const state = uuidv4()
     const scopes = 'streaming%20user-read-birthdate%20user-read-email%20user-modify-playback-state%20user-read-private'

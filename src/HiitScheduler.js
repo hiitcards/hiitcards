@@ -20,6 +20,7 @@ class HiitScheduler extends Component {
     isPaused: true,
     isBreak: false,
     shuffledCards: [],
+    disabledCardIds: [],
     volume: 0
   }
 
@@ -27,11 +28,19 @@ class HiitScheduler extends Component {
 
   componentWillMount() {
     this.setState({...this.jsonStore.get()})
+  }
+
+  componentDidMount() {
     this.shuffle()
   }
 
   shuffle() {
-    this.setState({shuffledCards: _.shuffle(Cards)})
+    const cards = _.clone(Cards)
+    const ids = this.state.disabledCardIds
+    _.remove(cards, (card) => {
+      return _.includes(ids, card.id)
+    })
+    this.setState({shuffledCards: _.shuffle(cards)})
   }
 
   isHalfWay() {
@@ -173,60 +182,66 @@ class HiitScheduler extends Component {
   render() {
     const card = this.state.shuffledCards[this.state.cardIndex]
 
-    let percent = ((this.state.repetitionIndex + 1) / this.state.repetitions) * 100
-    let progress = {
-      backgroundColor: '#21ba45',
-      width: percent + '%',
-      height: 10,
-      display: "block"
-    }
+    if (card) {
+      let percent = ((this.state.repetitionIndex + 1) / this.state.repetitions) * 100
+      let progress = {
+        backgroundColor: '#21ba45',
+        width: percent + '%',
+        height: 10,
+        display: "block"
+      }
 
-    let cardBackground = 'green'
-    if (this.state.isPaused)
-      cardBackground = 'orange'
+      let cardBackground = 'green'
+      if (this.state.isPaused)
+        cardBackground = 'orange'
 
-    let cardStyle = {
-      padding: '10px',
-      backgroundColor: cardBackground
-    }
+      let cardStyle = {
+        padding: '10px',
+        backgroundColor: cardBackground
+      }
 
-    return (
-      <Container>
-        <div className={this.state.isBreak ? 'hidden' : ''}>
-          <div>
-            <Grid>
-              <Grid.Column>
-                <Grid.Row onClick={this.handleClick}>
-                  <div style={cardStyle}>
-                    <HiitCard
-                      name={card.name}
-                      description={card.description}
-                      image={card.image}
-                    >
-                    </HiitCard>
-                  </div>
-                </Grid.Row>
-                <Grid.Row>
-                  <Segment basic>
-                    <a href="/#/settings">
-                      <h1>
+      return (
+        <Container>
+          <div className={this.state.isBreak ? 'hidden' : ''}>
+            <div>
+              <Grid>
+                <Grid.Column>
+                  <Grid.Row onClick={this.handleClick}>
+                    <div style={cardStyle}>
+                      <HiitCard
+                        name={card.name}
+                        description={card.description}
+                        image={card.image}
+                      >
+                      </HiitCard>
+                    </div>
+                  </Grid.Row>
+                  <Grid.Row>
+                    <Segment basic>
+                      <a href="/#/settings">
+                        <h1>
                       <span className="white">
                         <Icon name='clock'/>
                       </span>
-                      </h1>
-                    </a>
-                  </Segment>
-                </Grid.Row>
-              </Grid.Column>
-            </Grid>
+                        </h1>
+                      </a>
+                    </Segment>
+                  </Grid.Row>
+                </Grid.Column>
+              </Grid>
+            </div>
           </div>
-        </div>
-        <div className={!this.state.isBreak ? 'hidden' : ''}>
-          <Icon className="massive orange time" onClick={this.onBreakClick}/>
-          <p>Break</p>
-        </div>
-      </Container>
-    )
+          <div className={!this.state.isBreak ? 'hidden' : ''}>
+            <Icon className="massive orange time" onClick={this.onBreakClick}/>
+            <p>Break</p>
+          </div>
+        </Container>
+      )
+    } else {
+      return (
+        <div>...</div>
+      )
+    }
   }
 }
 
