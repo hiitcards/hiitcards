@@ -78,6 +78,9 @@ class AllCards extends Component {
         <Segment basic>
           <div><a href="/#/settings">Settings</a></div>
         </Segment>
+        <Segment basic>
+          <div>Select the cards you'd like to include:</div>
+        </Segment>
         <div>{cardItems}</div>
       </div>
     )
