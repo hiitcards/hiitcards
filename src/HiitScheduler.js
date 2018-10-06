@@ -183,14 +183,6 @@ class HiitScheduler extends Component {
     const card = this.state.shuffledCards[this.state.cardIndex]
 
     if (card) {
-      let percent = ((this.state.repetitionIndex + 1) / this.state.repetitions) * 100
-      let progress = {
-        backgroundColor: '#21ba45',
-        width: percent + '%',
-        height: 10,
-        display: "block"
-      }
-
       let cardBackground = 'green'
       if (this.state.isPaused)
         cardBackground = 'orange'

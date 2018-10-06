@@ -40,7 +40,7 @@ class AllCards extends Component {
   enableCard(card) {
     const state = this.state
     _.remove(state.disabledCardIds, (id) => {
-      return id == card.id
+      return id === card.id
     })
     this.setState(state)
     this.jsonStore.set('config', state)
@@ -62,9 +62,13 @@ class AllCards extends Component {
           background: background
         }
         return (
-          <img key={i} onClick={() => {
+          <img
+            alt={''}
+            key={i} onClick={() => {
             this.onClick(card)
-          }} src={`/assets/${card.image}`} style={imageStyle}/>
+          }}
+            src={`/assets/${card.image}`}
+            style={imageStyle}/>
         )
       }
     )
