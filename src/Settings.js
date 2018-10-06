@@ -81,8 +81,8 @@ class Settings extends Component {
         </Segment>
         <Button onClick={this.onSubmit}>Done</Button>
         <Segment basic className="right aligned">
-          <div className="">v1.1.15</div>
-          <div><a href="http://www.kahneraja.com">@kahneraja</a></div>
+          <div className="">v1.1.16</div>
+          <div><a href="http://kahneraja.com/hiit-cards-app/" target="_blank">@kahneraja</a></div>
         </Segment>
       </Form>
     );
