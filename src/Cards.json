@@ -378,5 +378,13 @@
   {
     "id": 65,
     "image": "wall-tucks.jpg"
+  },
+  {
+    "id": 66,
+    "image": "child-pose.jpg"
+  },
+  {
+    "id": 67,
+    "image": "leg-circles.jpg"
   }
 ]
