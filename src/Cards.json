@@ -386,5 +386,21 @@
   {
     "id": 67,
     "image": "leg-circles.jpg"
+  },
+  {
+    "id": 68,
+    "image": "extended-side.jpg"
+  },
+  {
+    "id": 69,
+    "image": "knee-wall-stand.jpg"
+  },
+  {
+    "id": 70,
+    "image": "plank-raise.jpg"
+  },
+  {
+    "id": 71,
+    "image": "thigh-squat.jpg"
   }
 ]
