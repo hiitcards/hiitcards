@@ -36,11 +36,12 @@ class HiitScheduler extends Component {
 
   shuffle() {
     const cards = _.clone(Cards)
+    const doubleCards = cards.concat(cards)
     const ids = this.state.disabledCardIds
-    _.remove(cards, (card) => {
+    _.remove(doubleCards, (card) => {
       return _.includes(ids, card.id)
     })
-    this.setState({shuffledCards: _.shuffle(cards)})
+    this.setState({shuffledCards: _.shuffle(doubleCards)})
   }
 
   isHalfWay() {
