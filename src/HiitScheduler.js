@@ -214,7 +214,7 @@ class HiitScheduler extends Component {
                       <a href="/#/settings">
                         <h1>
                       <span className="white">
-                        <Icon name='clock'/>
+                        <Icon name='clock'/> {this.remainingRepetitions()}
                       </span>
                         </h1>
                       </a>
