@@ -31,7 +31,17 @@ class HiitScheduler extends Component {
   }
 
   componentDidMount() {
-    this.shuffle()
+    this.order()
+  }
+
+  order() {
+    const cards = _.clone(Cards)
+    const ids = this.state.disabledCardIds
+    _.remove(cards, (card) => {
+      return _.includes(ids, card.id)
+    })
+    const orderedCards = _.orderBy(cards, card => card.order);
+    this.setState({shuffledCards: orderedCards})
   }
 
   shuffle() {
@@ -172,7 +182,7 @@ class HiitScheduler extends Component {
 
   onCardClick = () => {
     if (this.state.isPaused)
-      this.shuffle()
+      this.order()
   }
 
   onBreakClick = () => {

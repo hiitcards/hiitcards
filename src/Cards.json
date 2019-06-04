@@ -1,406 +1,437 @@
 [
   {
     "id": 1,
+    "order": 18,
     "image": "back-kick.jpg",
-    "name": "Back Walking",
-    "description": "On your back. Knees up. One leg rising at a time."
+    "name": "Back Walking"
   },
   {
     "id": 2,
+    "order": 26,
     "image": "bench-bells.jpg",
-    "name": "Bench Bells",
-    "description": "On your back. Both arms and legs up together."
+    "name": "Bench Bells"
   },
   {
     "id": 3,
+    "order": 26,
     "image": "bench-lift.jpg",
-    "name": "Bench Lifts",
-    "description": "In a kneeling position lifting your weight from a bench."
+    "name": "Bench Lifts"
   },
   {
     "id": 4,
+    "order": 25,
     "image": "birds-lifts.jpg",
-    "name": "Bird Lifts",
-    "description": "Rising into a bird position."
+    "name": "Bird Lifts"
   },
   {
     "id": 5,
+    "order": 2,
     "image": "bridge-lift.jpg",
-    "name": "Bridge Lifts",
-    "description": "Rising into an extended bridge position."
+    "name": "Bridge Lifts"
   },
   {
     "id": 6,
+    "order": 26,
     "image": "bridge-reaches.jpg",
-    "name": "Bridge Reaches",
-    "description": "Facing upwards. One arm and one leg extending."
+    "name": "Bridge Reaches"
   },
   {
     "id": 7,
+    "order": 26,
     "image": "burpy-twists.jpg",
-    "name": "Burpy Twists",
-    "description": "Rolling backwards onto your back. Lying down into a twist."
+    "name": "Burpy Twists"
   },
   {
     "id": 8,
+    "order": 26,
     "image": "burpy.jpg",
-    "name": "Burpies",
-    "description": "Jumping down into a push up."
+    "name": "Burpies"
   },
   {
     "id": 9,
+    "order": 26,
     "image": "butt-pops.jpg",
-    "name": "Butt Pops",
-    "description": "Head down and arms still. Legs jumping continuously."
+    "name": "Butt Pops"
   },
   {
     "id": 10,
+    "order": 26,
     "image": "cat-presses.jpg",
-    "name": "Cat Presses",
-    "description": "Pending down into a cat posture with one leg rising."
+    "name": "Cat Presses"
   },
   {
     "id": 11,
+    "order": 1,
     "image": "climb.jpg",
-    "name": "Climbing",
-    "description": "Climbing up on to a bench."
+    "name": "Climbing"
   },
   {
     "id": 12,
+    "order": 26,
     "image": "crunches.jpg",
-    "name": "Crunches",
-    "description": "Butt on the floor. Lifting lower and upper body together."
+    "name": "Crunches"
   },
   {
     "id": 13,
+    "order": 26,
     "image": "cycling.jpg",
-    "name": "Lifted Cycling",
-    "description": "Upper body lift. Cycling with legs."
+    "name": "Lifted Cycling"
   },
   {
     "id": 14,
+    "order": 10,
     "image": "dog-lifts.jpg",
-    "name": "Dog Lifts",
-    "description": "Head lowered. Lifting one leg."
+    "name": "Dog Lifts"
   },
   {
     "id": 15,
+    "order": 22,
     "image": "downward-walk.jpg",
-    "name": "Downward Walk",
-    "description": "Walk out into a downward dog position."
+    "name": "Downward Walk"
   },
   {
     "id": 16,
+    "order": 3,
     "image": "floor-cycle.jpg",
-    "name": "Floor Cycling",
-    "description": "Lying on back. Legs cycling."
+    "name": "Floor Cycling"
   },
   {
     "id": 17,
+    "order": 26,
     "image": "forward-lift.jpg",
-    "name": "Forward Lift",
-    "description": "Arms out front. One leg lifted."
+    "name": "Forward Lift"
   },
   {
     "id": 18,
+    "order": 26,
     "image": "handstand.jpg",
-    "name": "Handstand",
-    "description": "Arms down. Legs up."
+    "name": "Handstand"
   },
   {
     "id": 19,
+    "order": 4,
     "image": "hip-floor.jpg",
-    "name": "Floored Hips",
-    "description": "Face down. Alternating arms and legs rising."
+    "name": "Floored Hips"
   },
   {
     "id": 20,
+    "order": 26,
     "image": "knee-squat.jpg",
-    "name": "Knee Squats",
-    "description": "Lifting one leg. Lowering down onto a bench."
+    "name": "Knee Squats"
   },
   {
     "id": 21,
+    "order": 26,
     "image": "leg-up.jpg",
-    "name": "Legs Ups",
-    "description": "Arms up. Raising one leg."
+    "name": "Legs Ups"
   },
   {
     "id": 22,
+    "order": 26,
     "image": "leg-wipers.jpg",
-    "name": "Leg Wipers",
-    "description": "On your back. Lowering legs to one side."
+    "name": "Leg Wipers"
   },
   {
     "id": 23,
+    "order": 23,
     "image": "lifted-cycling.jpg",
-    "name": "Lifted Cycling",
-    "description": "Propped up on elbows. Cycling."
+    "name": "Lifted Cycling"
   },
   {
     "id": 24,
+    "order": 12,
     "image": "lunges.jpg",
-    "name": "Lunges",
-    "description": "Lowering down onto one knee."
+    "name": "Lunges"
   },
   {
     "id": 25,
+    "order": 17,
     "image": "over-lifts.jpg",
-    "name": "Bent lifts",
-    "description": "Remaining bent over. Alternating lifting."
+    "name": "Bent lifts"
   },
   {
     "id": 26,
+    "order": 11,
     "image": "planking.jpg",
-    "name": "Planking",
-    "description": "Body stationary. Propped up on elbows."
+    "name": "Planking"
   },
   {
     "id": 27,
+    "order": 6,
     "image": "push-lifts.jpg",
-    "name": "Push Lifts",
-    "description": "Upper body lifted. Raising one arm."
+    "name": "Push Lifts"
   },
   {
     "id": 28,
+    "order": 15,
     "image": "push-up.jpg",
-    "name": "Pushups",
-    "description": "Raising upper body on both arms."
+    "name": "Pushups"
   },
   {
     "id": 29,
+    "order": 26,
     "image": "push-walk.jpg",
-    "name": "Push Walk",
-    "description": "Upper body raised. One leg out the side."
+    "name": "Push Walk"
   },
   {
     "id": 30,
+    "order": 26,
     "image": "skating.jpg",
-    "name": "Skating",
-    "description": "Body lowered with one leg out the side."
+    "name": "Skating"
   },
   {
     "id": 31,
+    "order": 26,
     "image": "squat-punches.jpg",
-    "name": "Squat Punches",
-    "description": "Body lowered with arms punching out front."
+    "name": "Squat Punches"
   },
   {
     "id": 32,
+    "order": 26,
     "image": "squats.jpg",
-    "name": "Squats",
-    "description": "Body lowered with arms out front."
+    "name": "Squats"
   },
   {
     "id": 33,
+    "order": 14,
     "image": "star-bends.jpg",
-    "name": "Star Bends",
-    "description": "Bending over to the side. One arm up."
+    "name": "Star Bends"
   },
   {
     "id": 34,
+    "order": 8,
     "image": "star-jumps.jpg",
-    "name": "Star Jumps",
-    "description": "Jumping into the air with arms and legs spread out."
+    "name": "Star Jumps"
   },
   {
     "id": 35,
+    "order": 20,
     "image": "sun-salutions.jpg",
-    "name": "Sun Salutations",
-    "description": "Rising and falling into a sun salutation pose."
+    "name": "Sun Salutations"
   },
   {
     "id": 36,
+    "order": 26,
     "image": "twist-jumps.jpg",
-    "name": "Twist Jumps",
-    "description": "Jumping into the air with arms and legs swinging in opposite directions."
+    "name": "Twist Jumps"
   },
   {
     "id": 37,
+    "order": 9,
     "image": "upward-reach.jpg",
-    "name": "Upward Bridge",
-    "description": "Facing upwards. Upper body raised. One leg raising."
+    "name": "Upward Bridge"
   },
   {
     "id": 38,
+    "order": 26,
     "image": "upward_bridge.jpg",
-    "name": "Upward Reaching",
-    "description": "Facing upwards. Upper body raised. One arm raising."
+    "name": "Upward Reaching"
   },
   {
     "id": 39,
+    "order": 26,
     "image": "walk-bells.jpg",
-    "name": "Walking Bells",
-    "description": "Alternating arms and legs raising."
+    "name": "Walking Bells"
   },
   {
     "id": 40,
+    "order": 19,
     "image": "wide-step.jpg",
-    "name": "Wide Steps",
-    "description": "Bending over the side with a wide stance."
+    "name": "Wide Steps"
   },
   {
     "id": 41,
+    "order": 26,
     "image": "standing-belly-twist.jpg",
-    "name": "Standing Belly Twist",
-    "description": "Standing. One leg raised to your hand. Upper body twisted."
+    "name": "Standing Belly Twist"
   },
   {
     "id": 42,
+    "order": 26,
     "image": "triangle.jpg",
-    "name": "Triangle Stretches",
-    "description": "Alternating triangle stance. Upper body twist."
+    "name": "Triangle Stretches"
   },
   {
     "id": 43,
+    "order": 26,
     "image": "propped-leg.jpg",
-    "name": "Propped Leg",
-    "description": "Alternating stance on one leg. Upper body twist."
+    "name": "Propped Leg"
   },
   {
     "id": 44,
+    "order": 26,
     "image": "bridge-arch.jpg",
-    "name": "Bridge Archs",
-    "description": "On your back. Lifting dumbels up and over."
+    "name": "Bridge Archs"
   },
   {
     "id": 45,
+    "order": 26,
     "image": "standing-split.jpg",
-    "name": "Standing Split",
-    "description": "Head down. One leg up."
+    "name": "Standing Split"
   },
   {
     "id": 46,
+    "order": 26,
     "image": "wall-stand.jpg",
-    "name": "L Shaped Handstand",
-    "description": "L shaped handstand against a wall."
+    "name": "L Shaped Handstand"
   },
   {
     "id": 47,
+    "order": 26,
     "image": "raised-press.jpg",
-    "name": "Raised Press",
-    "description": "Pushups with legs raised."
+    "name": "Raised Press"
   },
   {
     "id": 48,
+    "order": 26,
     "image": "crow.jpg",
-    "name": "Crow",
-    "description": "Crouched over and raised up onto arms."
+    "name": "Crow"
   },
   {
     "id": 49,
+    "order": 26,
     "image": "fly-bells.jpg",
-    "name": "Fly Bells",
-    "description": "Arms up and down with dumbells."
+    "name": "Fly Bells"
   },
   {
     "id": 50,
+    "order": 21,
     "image": "pyramid-squats.jpg",
-    "name": "Pyramid Squats",
-    "description": "Hands together pushout outwards and core upwards in a squat."
+    "name": "Pyramid Squats"
   },
   {
     "id": 51,
+    "order": 26,
     "image": "surfers-lung.jpg",
-    "name": "Surfers Lung",
-    "description": "Squating with one leg out to the side. A long torso."
+    "name": "Surfers Lung"
   },
   {
     "id": 52,
+    "order": 26,
     "image": "staff-presses.jpg",
-    "name": "Staff Presses",
-    "description": "Pressing up with legs fully stretched out. Stretching hamstrings."
+    "name": "Staff Presses"
   },
   {
     "id": 53,
+    "order": 26,
     "image": "standing-fold.jpg",
-    "name": "Staff Presses",
-    "description": "Stretching hamstrings."
+    "name": "Staff Presses"
   },
   {
     "id": 54,
+    "order": 26,
     "image": "raised-bridge-lift.jpg",
-    "name": "Raised Bridge Lift",
-    "description": "Up on both arms and legs."
+    "name": "Raised Bridge Lift"
   },
   {
     "id": 55,
+    "order": 24,
     "image": "raised-bridge.jpg",
-    "name": "Raised Bridge",
-    "description": "Up on both arms and one leg up."
+    "name": "Raised Bridge"
   },
   {
     "id": 56,
+    "order": 26,
     "image": "platform-squat.jpg",
-    "name": "Platform Squat",
-    "description": "Dumbells. One legged squat on a raised platform."
+    "name": "Platform Squat"
   },
   {
     "id": 57,
+    "order": 26,
     "image": "wheel.jpg",
-    "name": "Wheel Lifts",
-    "description": "Wheel Pose (Urdhva Dhanurasana) is considered a more advanced pose because it’s a total body stretch."
+    "name": "Wheel Lifts"
   },
   {
     "id": 58,
+    "order": 26,
     "image": "elbow-lift.jpg",
-    "name": "Elbow Lifts",
-    "description": "Elbows down. Kick one leg up behind you."
+    "name": "Elbow Lifts"
   },
   {
     "id": 59,
+    "order": 26,
     "image": "elbow-stand.jpg",
-    "name": "Elbow Stand",
-    "description": "Elbows down. Both legs up."
+    "name": "Elbow Stand"
   },
   {
     "id": 60,
+    "order": 5,
     "image": "star-crunch.jpg",
-    "name": "Star Crunch",
-    "description": "A core work out aka the row boat."
+    "name": "Star Crunch"
   },
   {
     "id": 61,
+    "order": 26,
     "image": "backwards-plank.jpg"
   },
   {
     "id": 62,
+    "order": 26,
     "image": "downdog-slide.jpg"
   },
   {
     "id": 63,
+    "order": 26,
     "image": "downdog-toetaps.jpg"
   },
   {
     "id": 64,
+    "order": 26,
     "image": "wall-tuck.jpg"
   },
   {
     "id": 65,
+    "order": 26,
     "image": "wall-tucks.jpg"
   },
   {
     "id": 66,
+    "order": 26,
     "image": "child-pose.jpg"
   },
   {
     "id": 67,
+    "order": 26,
     "image": "leg-circles.jpg"
   },
   {
     "id": 68,
+    "order": 26,
     "image": "extended-side.jpg"
   },
   {
     "id": 69,
+    "order": 26,
     "image": "knee-wall-stand.jpg"
   },
   {
     "id": 70,
+    "order": 26,
     "image": "plank-raise.jpg"
   },
   {
     "id": 71,
+    "order": 26,
     "image": "thigh-squat.jpg"
+  },
+  {
+    "id": 72,
+    "order": 26,
+    "image": "swimming.jpg"
+  },
+  {
+    "id": 73,
+    "order": 7,
+    "image": "sit-ups.jpg"
+  },
+  {
+    "id": 74,
+    "order": 13,
+    "image": "rising-bridge.jpg"
+  },
+  {
+    "id": 75,
+    "order": 16,
+    "image": "floor-twist.jpg"
   }
 ]

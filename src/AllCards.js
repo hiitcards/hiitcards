@@ -48,7 +48,8 @@ class AllCards extends Component {
 
   render() {
     const disabledCardsIds = this.state.disabledCardIds
-    const cardItems = Cards.map((card, i) => {
+    const orderedCards = _.orderBy(Cards, card => card.order);
+    const cardItems = orderedCards.map((card, i) => {
         let background = 'green'
         if (_.includes(disabledCardsIds, card.id)) {
           background = 'orange'
